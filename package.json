@@ -1,0 +1,20 @@
+{
+  "name": "sinic-sound-histograms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild taigiHistogram.ts --bundle --platform=node --outfile=taigiHistogram.js",
+    "python-setup": "pip install chinese tqdm",
+    "python-dev-setup": "pip install mypy yapf",
+    "taigi": "npm run build && node taigiHistogram.js",
+    "cantonese": "python cantoHistogram.py",
+    "all": "npm run taigi && npm run cantonese"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "devDependencies": {
+    "esbuild": "^0.14.11"
+  }
+}
