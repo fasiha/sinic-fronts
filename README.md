@@ -160,21 +160,31 @@ For Taigi, we used the Taiwan Ministry of Education's dictionary which contained
 | ng6           | 0.003      | 1           | 40   |
 | ny            | 0.003      | 1           | 41   |
 
-## Setup
-1. Install [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links)
-2. Then run the following in your command line (Terminal, xterm, Command Prompt, etc):
+## Pre-requisites
+If you have [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), and a Python virtual environment (e.g., [venv](https://docs.python.org/3/library/venv.html)) already, skip to [Installation](#installation). Otherwise, go install those tools, *or*:
+
+1. Install [Python](https://www.python.org/downloads/), any 3.x version is fine.
+2. Install [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
+3. Run the following in your command line (Terminal, xterm, Command Prompt, etc):
 ```bash
-# environment creation
 conda create -n chinese-stuff
 conda activate chinese-stuff
-conda install pip nodejs git
+conda install -c conda-forge pip nodejs git
+```
+This creates an isolated conda vitual environment and installs pip/Python (yes, a potentially different version than your base system Python), Node.js, and Git inside it.
 
-# this repo setup
+## Installation
+```bash
 git clone https://github.com/fasiha/sinic-fronts.git
 cd sinic-fronts
 npm run python-setup
 npm i
 ```
+This will install some Node.js dependencies and some Python dependencies.
+
+I need both here because, sigh,
+- Node supports [Unicode property escapes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Unicode_Property_Escapes) but
+- Python has the `chinese` parser I'm familiar with. Multilingualism yay?
 
 ## Run
 ```
