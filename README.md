@@ -194,6 +194,8 @@ Emits
 - cantonese_histogram.json and
 - taigi_histogram.json
 
+N.B. The Cantonese parser might take an hour or two to run. It'll cache the results in a SQLite database so subsequent processing will complete in ~seconds. (The full Taigi analysis runs in a ~second since that corpus is already romanized.)
+
 ## Data sources
 - `cccanto-webdist.txt`: CC-Canto https://cccanto.org/download.html ("The latest version of CC-Canto can be downloaded here")
 - `cccedict-canto-readings-150923.txt`: CC-Canto https://cccanto.org/download.html ("The latest version of our Cantonese readings for CC-CEDICT can be downloaded here")
