@@ -96,6 +96,6 @@ const leadingRe = /^([^aeiou]+|[aeiou]+)/gu;
 const leading = words.flatMap(o => o.match(leadingRe)).filter(s => !!s);
 const hist = orderedCount(leading, false);
 for (const arr of hist) {
-  arr[1] /= leading.length;
+  arr.push(arr[1] / leading.length);
 }
 writeFileSync('taigi_histogram.json', JSON.stringify(hist, null, 1));

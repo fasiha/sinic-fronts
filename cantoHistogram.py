@@ -66,7 +66,7 @@ def getLeading(s: str) -> Optional[str]:
 
 cantonese = list(chain.from_iterable([textToCantonese(x) for x in tqdm(sentences)]))
 hist = orderedCount(filter(lambda x: x, map(getLeading, cantonese)), asc=False)
-histFraction = [(s, n / len(cantonese)) for s, n in hist]
+histFraction = [(s, n, n / len(cantonese)) for s, n in hist]
 
 with open('cantonese_histogram.json', 'w') as fid:
   json.dump(histFraction, fid)

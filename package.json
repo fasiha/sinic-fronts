@@ -9,7 +9,8 @@
     "python-dev-setup": "pip install mypy yapf",
     "taigi": "npm run build && node taigiHistogram.js",
     "cantonese": "python cantoHistogram.py",
-    "all": "npm run taigi && npm run cantonese"
+    "to-markdown": "node toMarkdownTables.js",
+    "all": "npm run taigi && npm run cantonese && npm run to-markdown"
   },
   "keywords": [],
   "author": "",
