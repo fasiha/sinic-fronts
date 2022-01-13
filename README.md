@@ -23,6 +23,7 @@ So this project's idea is to tabulate the leading sounds and their frequencies i
 - For Cantonese, we downloaded all Cantonese sentences from [Tatoeba](https://tatoeba.org/en/downloads), ran them through the [chinese](https://github.com/morinokami/chinese)-[Jieba](https://github.com/fxsjy/jieba)-[PyNLPIR](https://github.com/tsroten/pynlpir) pipeline to extract Cantonese readings.
 - For Mandarin, we use a table of Hanyu pinyin syllable frequencies from [Chih-Hao Tsai](http://research.chtsai.org/papers/pinyin-xref.html).
 
+Table of contents:
 - [Sinic Fronts](#sinic-fronts)
   - [Results](#results)
     - [Taigi (Hokkien, Holo)](#taigi-hokkien-holo)
