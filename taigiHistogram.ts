@@ -1,29 +1,3 @@
-/*
-## Setup: first run
-```
-$ npm install esbuild
-```
-and download
-https://github.com/g0v/moedict-data-twblg/blob/master/dict-twblg.json
-
-## Build
-```
-$ ./node_modules/.bin/esbuild taigiHistogram.ts --bundle --platform=node
---outfile=taigiHistogram.js
-```
-(I think `npx` takes longer than `esbuild`! So I call directly from
-node_modules)
-
-## Run
-```
-$ node taigiHistogram.js
-```
-will output `taigi_histogram.json`.
-
-This will be a list of tuples, the leading consonent/(vowel?) and a number
-between 0 and 1 representing the fraction of morphemes with that leading sound.
-*/
-
 import {readFileSync, writeFileSync} from 'fs';
 const example = [
   {
@@ -74,12 +48,15 @@ function count<T>(arr: T[]): Map<T, number> {
   return m;
 }
 
-function orderedCount<T>(arr: T[], asc = true): [T, number][] {
-  const m = count(arr);
-  const ret = [...m];
+export function sortMap<T>(map: Map<T, number>, asc = true): [T, number][] {
+  const ret = [...map];
   const factor = asc ? 1 : -1;
   ret.sort(([_, a], [_2, b]) => (a - b) * factor);
   return ret;
+}
+
+function orderedCount<T>(arr: T[], asc = true): [T, number][] {
+  return sortMap(count(arr), asc);
 }
 
 const dict: typeof example =
@@ -92,10 +69,12 @@ const examples =
                            .filter(s => !!s)));
 
 const words = examples.flatMap(accentedLatinWords);
-const leadingRe = /^([^aeiou]+|[aeiou]+)/gu;
+export const leadingRe = /^([^aeiou]+|[aeiou]+)/gu;
 const leading = words.flatMap(o => o.match(leadingRe)).filter(s => !!s);
 const hist = orderedCount(leading, false);
 for (const arr of hist) {
   arr.push(arr[1] / leading.length);
 }
 writeFileSync('taigi_histogram.json', JSON.stringify(hist, null, 1));
+
+// module.exports={leadingRe, sortMap}

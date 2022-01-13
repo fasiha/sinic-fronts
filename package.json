@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild taigiHistogram.ts --bundle --platform=node --outfile=taigiHistogram.js",
+    "build": "esbuild taigiHistogram.ts --bundle --platform=node --outfile=taigiHistogram.js && esbuild mandarinHistogram.ts --bundle --platform=node --outfile=mandarinHistogram.js",
     "python-setup": "pip install chinese tqdm",
     "python-dev-setup": "pip install mypy yapf",
-    "taigi": "npm run build && node taigiHistogram.js",
+    "taigi": "node taigiHistogram.js",
+    "mandarin": "node mandarinHistogram.js",
     "cantonese": "python cantoHistogram.py",
     "to-markdown": "node toMarkdownTables.js",
-    "all": "npm run taigi && npm run cantonese && npm run to-markdown"
+    "all": "npm run build && npm run taigi && npm run mandarin && npm run cantonese && npm run to-markdown"
   },
   "keywords": [],
   "author": "",
