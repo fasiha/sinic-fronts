@@ -24,7 +24,10 @@ const hanyuFreq = readFileSync('pinyin-freq.tsv', 'utf8')
 // processed properly by `leadingRe`
 const hist = sortMap(groupBy(hanyuFreq), false);
 const sum = hist.reduce((prev, curr) => prev + curr[1], 0);
-for (const arr of hist) {
-  arr.push(arr[1] / sum);
+for (const [idx, arr] of hist.entries()) {
+  const frac = arr[1] / sum;
+  arr.push(frac);
+  arr.push(frac + (((hist[idx - 1] as number[])?.[3]) || 0));
 }
+
 writeFileSync('mandarin_histogram.json', JSON.stringify(hist, null, 1));

@@ -72,8 +72,10 @@ const words = examples.flatMap(accentedLatinWords);
 export const leadingRe = /^([^aeiou]+|[aeiou]+)/gu;
 const leading = words.flatMap(o => o.match(leadingRe)).filter(s => !!s);
 const hist = orderedCount(leading, false);
-for (const arr of hist) {
-  arr.push(arr[1] / leading.length);
+for (const [idx, arr] of hist.entries()) {
+  const frac = arr[1] / leading.length;
+  arr.push(frac);
+  arr.push(frac + (((hist[idx - 1] as number[])?.[3]) || 0));
 }
 writeFileSync('taigi_histogram.json', JSON.stringify(hist, null, 1));
 

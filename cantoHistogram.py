@@ -1,27 +1,11 @@
-"""
-## Setup
-Download & unzip `yue_sentences.tsv.bz2` from https://tatoeba.org/en/downloads
-
-Then run
-```
-pip install chinese tqdm
-```
-
-## Run
-```
-python cantoHistogram.py
-```
-No output yet.
-"""
-
 import json
 import re
-from itertools import chain
+from itertools import chain, accumulate, islice
 from typing import TypeVar, Optional, Iterator
 from parse import parseTextToMorphemes
 from tqdm import tqdm  # type: ignore
 
-leading = re.compile(r'^([^aeiou]+|[aeiou]+)')
+leading = re.compile(r'^([^aeiou0-9]+|[aeiou]+)')
 sentences: list[str] = []
 
 with open("yue_sentences.tsv", 'r') as fid:
@@ -68,5 +52,8 @@ cantonese = list(chain.from_iterable([textToCantonese(x) for x in tqdm(sentences
 hist = orderedCount(filter(lambda x: x, map(getLeading, cantonese)), asc=False)
 histFraction = [(s, n, n / len(cantonese)) for s, n in hist]
 
+cumulative = islice(accumulate(histFraction, lambda a, b: a + b[2], initial=0.0), 1, None)
+histCum = [a + (b,) for a, b in zip(histFraction, cumulative)]
+
 with open('cantonese_histogram.json', 'w') as fid:
-  json.dump(histFraction, fid)
+  json.dump(histCum, fid)

@@ -3,7 +3,7 @@ Ok. This is going to sound ridiculous. But. I've been listening to a lot of musi
 1. **Cantonese** thanks to this [Cantonese rap Spotify playlist](https://open.spotify.com/playlist/38CDvH0GDbmI9bwl9irOQM?si=8ea4f080f12c416d) (see [discussion](https://old.reddit.com/r/Cantonese/comments/rsbxn8/my_cantonese_rap_spotify_playlist_that_ive_been/) by the curator) and [some](https://www.scmp.com/news/hong-kong/politics/article/3134073/forget-k-pop-why-hong-kong-canto-pop-singers-keung-serrini) [articles](https://globalvoices.org/2021/11/11/a-dive-into-young-peoples-discontent-through-the-hong-kong-indie-band-my-little-airport/), and
 2. **Taigi** (also known as Hokkien, Taiwanese, etc.) thanks to friends learning [Hokkien on Glossika](https://ai.glossika.com/language/learn-taiwanese-hokkien), who send me Hokkien-heavy Spotify playlists like [Taiwanese songs](https://open.spotify.com/playlist/3TuT6QBLK9X9BDiKetjgrM?si=7d03027fb7f546d9), plus Joyu Wang's [Taigi Music](https://t.co/0JF82KJSco) Spotify playlist (accompanying Wang's [WSJ article](https://www.wsj.com/articles/chinese-pressure-fuels-an-unlikely-language-revival-in-taiwan-11640178003?reflink=desktopwebshare_permalink), and there's a [tweet](https://mobile.twitter.com/joyuwang/status/1473903487025299456)), 
 
-and… this is tricky because my ear is not great at disambiguating Cantonese from Taigi from Mandarin.
+and⋯ this is tricky because my ear is not great at disambiguating Cantonese from Taigi from Mandarin.
 
 Of course the right thing to do would be to learn phrases in all these languages and use that to identify the language while listening but I was curious if there was any overlap in the *leading sounds* for "words" in each language?
 
@@ -26,185 +26,105 @@ So this project's idea is to tabulate the leading sounds and their frequencies i
 Table of contents:
 - [Sinic Fronts](#sinic-fronts)
   - [Results](#results)
-    - [Taigi (Hokkien, Holo)](#taigi-hokkien-holo)
-    - [Cantonese](#cantonese)
-    - [Mandarin](#mandarin)
   - [Pre-requisites](#pre-requisites)
   - [Installation](#installation)
   - [Run](#run)
   - [Data sources](#data-sources)
 
 ## Results
+Explanation of columns:
+- **"%"**: fraction of syllables starting with this sound, in the given language
+- **"running %"**: running (cumulative) fraction of syllables starting with this and all above sounds
 
-### Taigi (Hokkien, Holo)
-| leading sound | fraction % | occurrences | rank |
-| ------------- | ---------- | ----------- | ---- |
-| ts            | 11.0       | 11885       | 1    |
-| k             | 10.1       | 10951       | 2    |
-| l             | 9.0        | 9745        | 3    |
-| t             | 8.8        | 9482        | 4    |
-| s             | 8.5        | 9249        | 5    |
-| h             | 5.8        | 6264        | 6    |
-| kh            | 5.3        | 5767        | 7    |
-| b             | 5.1        | 5499        | 8    |
-| a             | 4.7        | 5070        | 9    |
-| tsh           | 3.9        | 4260        | 10   |
-| e             | 3.8        | 4075        | 11   |
-| i             | 3.6        | 3940        | 12   |
-| p             | 3.4        | 3670        | 13   |
-| th            | 3.0        | 3250        | 14   |
-| g             | 2.8        | 3004        | 15   |
-| m             | 1.4        | 1566        | 16   |
-| ph            | 1.4        | 1502        | 17   |
-| n             | 1.3        | 1377        | 18   |
-| j             | 1.1        | 1239        | 19   |
-| u             | 0.9        | 1023        | 20   |
-| m̄             | 0.8        | 846         | 21   |
-| ia            | 0.5        | 595         | 22   |
-| ua            | 0.4        | 401         | 23   |
-| io            | 0.3        | 350         | 24   |
-| ue            | 0.3        | 342         | 25   |
-| iu            | 0.3        | 322         | 26   |
-| nn̄g           | 0.3        | 274         | 27   |
-| ui            | 0.2        | 242         | 28   |
-| o             | 0.2        | 196         | 29   |
-| oo            | 0.2        | 188         | 30   |
-| mn̂g           | 0.2        | 182         | 31   |
-| tńg           | 0.1        | 150         | 32   |
-| ng            | 0.1        | 117         | 33   |
-| pn̄g           | 0.1        | 110         | 34   |
-| sǹg           | 0.1        | 82          | 35   |
-| khǹg          | 0.1        | 78          | 36   |
-| tn̂g           | 0.1        | 74          | 37   |
-| tng           | 0.1        | 64          | 38   |
-| tsng          | 0.1        | 62          | 39   |
-| tǹg           | 0.0        | 50          | 40   |
-| hng           | 0.0        | 45          | 41   |
-| sng           | 0.0        | 44          | 42   |
-| kng           | 0.0        | 42          | 43   |
-| tn̄g           | 0.0        | 41          | 44   |
-| sńg           | 0.0        | 40          | 45   |
-| thn̂g          | 0.0        | 37          | 46   |
-| thng          | 0.0        | 35          | 47   |
-| hn̂g           | 0.0        | 34          | 48   |
-| mn̄g           | 0.0        | 33          | 49   |
-| tshng         | 0.0        | 31          | 50   |
-| iau           | 0.0        | 30          | 51   |
-| nńg           | 0.0        | 25          | 52   |
-| thǹg          | 0.0        | 19          | 53   |
-| kǹg           | 0.0        | 19          | 54   |
-| hn̄g           | 0.0        | 19          | 55   |
-| tshn̂g         | 0.0        | 18          | 56   |
-| n̂g            | 0.0        | 16          | 57   |
-| ai            | 0.0        | 14          | 58   |
-| au            | 0.0        | 13          | 59   |
-| ńg            | 0.0        | 12          | 60   |
-| tsǹg          | 0.0        | 12          | 61   |
-| ǹg            | 0.0        | 11          | 62   |
-| kńg           | 0.0        | 11          | 63   |
-| uai           | 0.0        | 10          | 64   |
-| nǹg           | 0.0        | 8           | 65   |
-| thn̄g          | 0.0        | 7           | 66   |
-| nn̂g           | 0.0        | 5           | 67   |
-| khng          | 0.0        | 5           | 68   |
-| tsn̄g          | 0.0        | 5           | 69   |
-| ḿ             | 0.0        | 4           | 70   |
-| tshńg         | 0.0        | 4           | 71   |
-| m̂             | 0.0        | 3           | 72   |
-| tsn̂g          | 0.0        | 2           | 73   |
-| khngh         | 0.0        | 2           | 74   |
-| hngh          | 0.0        | 2           | 75   |
-| hm̍h           | 0.0        | 2           | 76   |
-| png           | 0.0        | 2           | 77   |
-| sn̂g           | 0.0        | 2           | 78   |
-| hmh           | 0.0        | 2           | 79   |
-| n̄g            | 0.0        | 2           | 80   |
-| x             | 0.0        | 2           | 81   |
-| tshǹg         | 0.0        | 1           | 82   |
-| ｘ            | 0.0        | 1           | 83   |
-| y             | 0.0        | 1           | 84   |
-| phngh         | 0.0        | 1           | 85   |
-| nng           | 0.0        | 1           | 86   |
-| pńg           | 0.0        | 1           | 87   |
-
-### Cantonese
-| leading sound | fraction % | occurrences | rank |
-| ------------- | ---------- | ----------- | ---- |
-| d             | 10.4       | 3845        | 1    |
-| g             | 9.9        | 3661        | 2    |
-| z             | 9.4        | 3468        | 3    |
-| j             | 8.3        | 3059        | 4    |
-| h             | 8.2        | 3028        | 5    |
-| ng            | 6.3        | 2310        | 6    |
-| k             | 6.0        | 2202        | 7    |
-| n             | 5.5        | 2046        | 8    |
-| s             | 5.3        | 1958        | 9    |
-| l             | 5.3        | 1949        | 10   |
-| m             | 4.3        | 1599        | 11   |
-| m4            | 4.2        | 1555        | 12   |
-| aa            | 3.0        | 1100        | 13   |
-| b             | 2.7        | 1005        | 14   |
-| c             | 2.5        | 916         | 15   |
-| w             | 2.4        | 895         | 16   |
-| t             | 2.0        | 730         | 17   |
-| f             | 1.5        | 538         | 18   |
-| jy            | 0.5        | 195         | 19   |
-| gw            | 0.5        | 181         | 20   |
-| zy            | 0.5        | 179         | 21   |
-| sy            | 0.3        | 115         | 22   |
-| p             | 0.3        | 112         | 23   |
-| cy            | 0.2        | 66          | 24   |
-| y             | 0.2        | 61          | 25   |
-| aai           | 0.0        | 14          | 26   |
-| oi            | 0.0        | 13          | 27   |
-| gy            | 0.0        | 12          | 28   |
-| dy            | 0.0        | 10          | 29   |
-| ly            | 0.0        | 9           | 30   |
-| a             | 0.0        | 9           | 31   |
-| ng5           | 0.0        | 7           | 32   |
-| kw            | 0.0        | 6           | 33   |
-| aau           | 0.0        | 4           | 34   |
-| u             | 0.0        | 4           | 35   |
-| o             | 0.0        | 4           | 36   |
-| au            | 0.0        | 3           | 37   |
-| hy            | 0.0        | 3           | 38   |
-| ty            | 0.0        | 1           | 39   |
-| ng6           | 0.0        | 1           | 40   |
-| ny            | 0.0        | 1           | 41   |
-
-### Mandarin
-| leading sound | fraction % | occurrences | rank |
-| ------------- | ---------- | ----------- | ---- |
-| y             | 9.9        | 98916.6     | 1    |
-| j             | 7.9        | 78818.8     | 2    |
-| x             | 7.6        | 75671.1     | 3    |
-| d             | 7.3        | 73279.4     | 4    |
-| sh            | 7.1        | 71386.2     | 5    |
-| zh            | 6.4        | 64194.4     | 6    |
-| l             | 5.2        | 52315.0     | 7    |
-| g             | 5.1        | 50864.2     | 8    |
-| h             | 4.5        | 44657.7     | 9    |
-| w             | 4.4        | 43828.4     | 10   |
-| b             | 4.2        | 42204.0     | 11   |
-| t             | 4.1        | 40803.8     | 12   |
-| z             | 3.3        | 33442.8     | 13   |
-| q             | 3.2        | 32496.6     | 14   |
-| ch            | 2.8        | 27749.3     | 15   |
-| m             | 2.7        | 27083.8     | 16   |
-| f             | 2.7        | 26942.5     | 17   |
-| r             | 2.2        | 22135.1     | 18   |
-| k             | 2.1        | 20611.0     | 19   |
-| n             | 2.0        | 19743.9     | 20   |
-| s             | 1.8        | 18198.4     | 21   |
-| p             | 1.2        | 11592.0     | 22   |
-| c             | 1.1        | 10824.5     | 23   |
-| e             | 0.6        | 6039.3      | 24   |
-| a             | 0.3        | 3219.6      | 25   |
-| ou            | 0.1        | 1473.5      | 26   |
-| ai            | 0.1        | 949.3       | 27   |
-| ao            | 0.0        | 342.2       | 28   |
-| o             | 0.0        | 216.9       | 29   |
-| ei            | 0.0        | 0.0         | 30   |
+| rank | Taigi  | %     | running % |     | Cantonese | %     | running % |     | Mandarin | %    | running % |
+| ---- | ------ | ----- | --------- | --- | --------- | ----- | --------- | --- | -------- | ---- | --------- |
+| 1    | ts⋯    | 10.98 | 10.98     |     | d⋯        | 10.43 | 10.43     |     | y⋯       | 9.89 | 9.89      |
+| 2    | k⋯     | 10.12 | 21.10     |     | g⋯        | 9.93  | 20.36     |     | j⋯       | 7.88 | 17.77     |
+| 3    | l⋯     | 9.00  | 30.11     |     | z⋯        | 9.41  | 29.76     |     | x⋯       | 7.57 | 25.34     |
+| 4    | t⋯     | 8.76  | 38.87     |     | m⋯        | 8.55  | 38.31     |     | d⋯       | 7.33 | 32.67     |
+| 5    | s⋯     | 8.55  | 47.41     |     | j⋯        | 8.30  | 46.61     |     | sh⋯      | 7.14 | 39.81     |
+| 6    | h⋯     | 5.79  | 53.20     |     | h⋯        | 8.21  | 54.82     |     | zh⋯      | 6.42 | 46.23     |
+| 7    | kh⋯    | 5.33  | 58.53     |     | ng⋯       | 6.29  | 61.11     |     | l⋯       | 5.23 | 51.46     |
+| 8    | b⋯     | 5.08  | 63.61     |     | k⋯        | 5.97  | 67.08     |     | g⋯       | 5.09 | 56.54     |
+| 9    | a⋯     | 4.68  | 68.30     |     | n⋯        | 5.55  | 72.63     |     | h⋯       | 4.47 | 61.01     |
+| 10   | tsh⋯   | 3.94  | 72.24     |     | s⋯        | 5.31  | 77.94     |     | w⋯       | 4.38 | 65.39     |
+| 11   | e⋯     | 3.77  | 76.00     |     | l⋯        | 5.29  | 83.22     |     | b⋯       | 4.22 | 69.61     |
+| 12   | i⋯     | 3.64  | 79.64     |     | aa⋯       | 2.98  | 86.21     |     | t⋯       | 4.08 | 73.69     |
+| 13   | p⋯     | 3.39  | 83.03     |     | b⋯        | 2.73  | 88.93     |     | z⋯       | 3.34 | 77.04     |
+| 14   | th⋯    | 3.00  | 86.04     |     | c⋯        | 2.48  | 91.42     |     | q⋯       | 3.25 | 80.29     |
+| 15   | g⋯     | 2.78  | 88.81     |     | w⋯        | 2.43  | 93.84     |     | ch⋯      | 2.77 | 83.06     |
+| 16   | m⋯     | 1.45  | 90.26     |     | t⋯        | 1.98  | 95.82     |     | m⋯       | 2.71 | 85.77     |
+| 17   | ph⋯    | 1.39  | 91.65     |     | f⋯        | 1.46  | 97.28     |     | f⋯       | 2.69 | 88.47     |
+| 18   | n⋯     | 1.27  | 92.92     |     | jy⋯       | 0.53  | 97.81     |     | r⋯       | 2.21 | 90.68     |
+| 19   | j⋯     | 1.14  | 94.06     |     | gw⋯       | 0.49  | 98.30     |     | k⋯       | 2.06 | 92.74     |
+| 20   | u⋯     | 0.95  | 95.01     |     | zy⋯       | 0.49  | 98.79     |     | n⋯       | 1.97 | 94.71     |
+| 21   | m̄⋯     | 0.78  | 95.79     |     | sy⋯       | 0.31  | 99.10     |     | s⋯       | 1.82 | 96.53     |
+| 22   | ia⋯    | 0.55  | 96.34     |     | p⋯        | 0.30  | 99.40     |     | p⋯       | 1.16 | 97.69     |
+| 23   | ua⋯    | 0.37  | 96.71     |     | cy⋯       | 0.18  | 99.58     |     | c⋯       | 1.08 | 98.78     |
+| 24   | io⋯    | 0.32  | 97.03     |     | y⋯        | 0.17  | 99.75     |     | e⋯       | 0.60 | 99.38     |
+| 25   | ue⋯    | 0.32  | 97.35     |     | aai⋯      | 0.04  | 99.79     |     | a⋯       | 0.32 | 99.70     |
+| 26   | iu⋯    | 0.30  | 97.65     |     | oi⋯       | 0.04  | 99.82     |     | ou⋯      | 0.15 | 99.85     |
+| 27   | nn̄g⋯   | 0.25  | 97.90     |     | gy⋯       | 0.03  | 99.85     |     | ai⋯      | 0.09 | 99.94     |
+| 28   | ui⋯    | 0.22  | 98.13     |     | dy⋯       | 0.03  | 99.88     |     | ao⋯      | 0.03 | 99.98     |
+| 29   | o⋯     | 0.18  | 98.31     |     | ly⋯       | 0.02  | 99.91     |     | o⋯       | 0.02 | 100.00    |
+| 30   | oo⋯    | 0.17  | 98.48     |     | a⋯        | 0.02  | 99.93     |     | ei⋯      | 0.00 | 100.00    |
+| 31   | mn̂g⋯   | 0.17  | 98.65     |     | kw⋯       | 0.02  | 99.95     |     |          |      |           |
+| 32   | tńg⋯   | 0.14  | 98.79     |     | aau⋯      | 0.01  | 99.96     |     |          |      |           |
+| 33   | ng⋯    | 0.11  | 98.89     |     | u⋯        | 0.01  | 99.97     |     |          |      |           |
+| 34   | pn̄g⋯   | 0.10  | 99.00     |     | o⋯        | 0.01  | 99.98     |     |          |      |           |
+| 35   | sǹg⋯   | 0.08  | 99.07     |     | au⋯       | 0.01  | 99.99     |     |          |      |           |
+| 36   | khǹg⋯  | 0.07  | 99.14     |     | hy⋯       | 0.01  | 99.99     |     |          |      |           |
+| 37   | tn̂g⋯   | 0.07  | 99.21     |     | ty⋯       | 0.00  | 100.00    |     |          |      |           |
+| 38   | tng⋯   | 0.06  | 99.27     |     | ny⋯       | 0.00  | 100.00    |     |          |      |           |
+| 39   | tsng⋯  | 0.06  | 99.33     |     |           |       |           |     |          |      |           |
+| 40   | tǹg⋯   | 0.05  | 99.38     |     |           |       |           |     |          |      |           |
+| 41   | hng⋯   | 0.04  | 99.42     |     |           |       |           |     |          |      |           |
+| 42   | sng⋯   | 0.04  | 99.46     |     |           |       |           |     |          |      |           |
+| 43   | kng⋯   | 0.04  | 99.50     |     |           |       |           |     |          |      |           |
+| 44   | tn̄g⋯   | 0.04  | 99.53     |     |           |       |           |     |          |      |           |
+| 45   | sńg⋯   | 0.04  | 99.57     |     |           |       |           |     |          |      |           |
+| 46   | thn̂g⋯  | 0.03  | 99.61     |     |           |       |           |     |          |      |           |
+| 47   | thng⋯  | 0.03  | 99.64     |     |           |       |           |     |          |      |           |
+| 48   | hn̂g⋯   | 0.03  | 99.67     |     |           |       |           |     |          |      |           |
+| 49   | mn̄g⋯   | 0.03  | 99.70     |     |           |       |           |     |          |      |           |
+| 50   | tshng⋯ | 0.03  | 99.73     |     |           |       |           |     |          |      |           |
+| 51   | iau⋯   | 0.03  | 99.76     |     |           |       |           |     |          |      |           |
+| 52   | nńg⋯   | 0.02  | 99.78     |     |           |       |           |     |          |      |           |
+| 53   | thǹg⋯  | 0.02  | 99.80     |     |           |       |           |     |          |      |           |
+| 54   | kǹg⋯   | 0.02  | 99.81     |     |           |       |           |     |          |      |           |
+| 55   | hn̄g⋯   | 0.02  | 99.83     |     |           |       |           |     |          |      |           |
+| 56   | tshn̂g⋯ | 0.02  | 99.85     |     |           |       |           |     |          |      |           |
+| 57   | n̂g⋯    | 0.01  | 99.86     |     |           |       |           |     |          |      |           |
+| 58   | ai⋯    | 0.01  | 99.88     |     |           |       |           |     |          |      |           |
+| 59   | au⋯    | 0.01  | 99.89     |     |           |       |           |     |          |      |           |
+| 60   | ńg⋯    | 0.01  | 99.90     |     |           |       |           |     |          |      |           |
+| 61   | tsǹg⋯  | 0.01  | 99.91     |     |           |       |           |     |          |      |           |
+| 62   | ǹg⋯    | 0.01  | 99.92     |     |           |       |           |     |          |      |           |
+| 63   | kńg⋯   | 0.01  | 99.93     |     |           |       |           |     |          |      |           |
+| 64   | uai⋯   | 0.01  | 99.94     |     |           |       |           |     |          |      |           |
+| 65   | nǹg⋯   | 0.01  | 99.95     |     |           |       |           |     |          |      |           |
+| 66   | thn̄g⋯  | 0.01  | 99.95     |     |           |       |           |     |          |      |           |
+| 67   | nn̂g⋯   | 0.00  | 99.96     |     |           |       |           |     |          |      |           |
+| 68   | khng⋯  | 0.00  | 99.96     |     |           |       |           |     |          |      |           |
+| 69   | tsn̄g⋯  | 0.00  | 99.97     |     |           |       |           |     |          |      |           |
+| 70   | ḿ⋯     | 0.00  | 99.97     |     |           |       |           |     |          |      |           |
+| 71   | tshńg⋯ | 0.00  | 99.98     |     |           |       |           |     |          |      |           |
+| 72   | m̂⋯     | 0.00  | 99.98     |     |           |       |           |     |          |      |           |
+| 73   | tsn̂g⋯  | 0.00  | 99.98     |     |           |       |           |     |          |      |           |
+| 74   | khngh⋯ | 0.00  | 99.98     |     |           |       |           |     |          |      |           |
+| 75   | hngh⋯  | 0.00  | 99.98     |     |           |       |           |     |          |      |           |
+| 76   | hm̍h⋯   | 0.00  | 99.99     |     |           |       |           |     |          |      |           |
+| 77   | png⋯   | 0.00  | 99.99     |     |           |       |           |     |          |      |           |
+| 78   | sn̂g⋯   | 0.00  | 99.99     |     |           |       |           |     |          |      |           |
+| 79   | hmh⋯   | 0.00  | 99.99     |     |           |       |           |     |          |      |           |
+| 80   | n̄g⋯    | 0.00  | 99.99     |     |           |       |           |     |          |      |           |
+| 81   | x⋯     | 0.00  | 99.99     |     |           |       |           |     |          |      |           |
+| 82   | tshǹg⋯ | 0.00  | 100.00    |     |           |       |           |     |          |      |           |
+| 83   | ｘ⋯    | 0.00  | 100.00    |     |           |       |           |     |          |      |           |
+| 84   | y⋯     | 0.00  | 100.00    |     |           |       |           |     |          |      |           |
+| 85   | phngh⋯ | 0.00  | 100.00    |     |           |       |           |     |          |      |           |
+| 86   | nng⋯   | 0.00  | 100.00    |     |           |       |           |     |          |      |           |
+| 87   | pńg⋯   | 0.00  | 100.00    |     |           |       |           |     |          |      |           |
 
 ## Pre-requisites
 If you have [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), and a Python virtual environment (e.g., [venv](https://docs.python.org/3/library/venv.html)) already, skip to [Installation](#installation). Otherwise, go install those tools, *or*:
