@@ -36,6 +36,8 @@ Explanation of columns:
 - **"%"**: fraction of syllables starting with this sound, in the given language
 - **"running %"**: running (cumulative) fraction of syllables starting with this and all above sounds
 
+→➡︎➜ **On mobile** scroll right to see all three languages in the table! →➡︎➜
+
 | rank | Taigi  | %     | running % |     | Cantonese | %     | running % |     | Mandarin | %    | running % |
 | ---- | ------ | ----- | --------- | --- | --------- | ----- | --------- | --- | -------- | ---- | --------- |
 | 1    | ts⋯    | 10.98 | 10.98     |     | d⋯        | 10.43 | 10.43     |     | y⋯       | 9.89 | 9.89      |
