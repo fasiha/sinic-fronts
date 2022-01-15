@@ -69,8 +69,13 @@ const examples =
                            .filter(s => !!s)));
 
 const words = examples.flatMap(accentedLatinWords);
-export const leadingRe = /^([^aeiou]+|[aeiou]+)/gu;
-const leading = words.flatMap(o => o.match(leadingRe)).filter(s => !!s);
+// We use `normalize('NFD')` to convert accented characters into ASCII plus
+// non-combining accent `\u0300-\u036f`, so we can split on it. This isn't
+// strictly necessary! It just results in fewer syllable starts, e.g., "tshn̂g"
+// is mapped to the "tshn".
+export const leadingRe = /^([^aeiou\u0300-\u036f]+|[aeiou]+)/gu;
+const leading =
+    words.flatMap(o => o.normalize('NFD').match(leadingRe)).filter(s => !!s);
 const hist = orderedCount(leading, false);
 for (const [idx, arr] of hist.entries()) {
   const frac = arr[1] / leading.length;
