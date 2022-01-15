@@ -21,7 +21,7 @@ In this sentence, "b" is the leading sound for two syllables. So in words, **a s
 So this project's idea is to tabulate the leading sounds and their frequencies in Taigi, Cantonese, and Mandarin.
 - For Taigi, we used the [Taiwan Ministry of Education](https://github.com/g0v/moedict-data-twblg/blob/master/dict-twblg.json)'s dictionary which contains romanized example sentences. We calculate the frequency of each syllables' leading sound using all example sentences.
 - For Cantonese, we use word frequency data from Li, Badrulhisham, and Alderete's "Word and sound frequency in Cantonese: comparisons across three corpora" (2020; [pdf](https://www.sfu.ca/~alderete/pubs/liEtal2020_cantfreq.pdf), [data](https://github.com/jane-lisy/cantfreq/blob/master/IARPA/iarpa_word.csv)).
-- For Mandarin, we use a table of Hanyu pinyin syllable frequencies from Chih-Hao Tsai's [Zhuyin, Hanyu Pinyin, and Tongyong Pinyin Cross-Reference Table](http://research.chtsai.org/papers/pinyin-xref.html) (2020).
+- For Mandarin, we use a table of Hanyu pinyin syllable frequencies from Chih-Hao Tsai's [Zhuyin, Hanyu Pinyin, and Tongyong Pinyin Cross-Reference Table](http://research.chtsai.org/papers/pinyin-xref.html) (2001).
 
 Table of contents:
 - [Sinic Fronts](#sinic-fronts)
